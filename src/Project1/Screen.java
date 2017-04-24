@@ -5,13 +5,16 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Screen extends JFrame implements ActionListener 
 {
@@ -24,9 +27,11 @@ public class Screen extends JFrame implements ActionListener
    private JTextField text1 = new JTextField();
    private JTextField text2 = new JTextField();
    private CardLayout c1 = new CardLayout();
-   private JButton button1, button2, button3, button4, button5, button6, button7, button8;
+   private JButton button1, button2, button3, button4, button5, button6, button7, button8, button9;
    private JLabel label1;
-
+   
+   private static File file = new File("D:/");
+   private static FileNameExtensionFilter filter = new FileNameExtensionFilter("Text File","txt");
 
       
    // constructor
@@ -44,6 +49,7 @@ public class Screen extends JFrame implements ActionListener
 	   button6 = new JButton("Main Menu");
 	   button7 = new JButton("Confirm");
 	   button8 = new JButton("Confirm");
+	   button9 = new JButton("Attach");
 	   
 	   panelCont.setLayout(c1);
 	   c1.show(panelCont, "1");
@@ -61,6 +67,7 @@ public class Screen extends JFrame implements ActionListener
 	   panel2.add(button4);
 	   
 	   //add to panel 3
+	   panel3.add(button9);
 	   panel3.add(button5);
 	   
 	   //add to panel 4
@@ -76,10 +83,10 @@ public class Screen extends JFrame implements ActionListener
 	   
 	   
 	   //custom sizes set
-	   Dimension panels = new Dimension(400,400);
-	   Dimension mainbuttons = new Dimension(250,40);
-	   Dimension exitbuttons = new Dimension(100,40);
-	   Dimension textfield = new Dimension(200,40);
+	   Dimension panels = new Dimension(400,200);
+	   Dimension mainbuttons = new Dimension(250,30);
+	   Dimension exitbuttons = new Dimension(130,30);
+	   Dimension textfield = new Dimension(400,30);
 	   
 	   
 	   //panel sizes
@@ -98,6 +105,7 @@ public class Screen extends JFrame implements ActionListener
 	   button6.setPreferredSize(exitbuttons);
 	   button7.setPreferredSize(exitbuttons);
 	   button8.setPreferredSize(exitbuttons);
+	   button9.setPreferredSize(exitbuttons);
 	   
 	   
 	   //text field sizes
@@ -114,7 +122,7 @@ public class Screen extends JFrame implements ActionListener
 	   button6.addActionListener(this);
 	   button7.addActionListener(this);
 	   button8.addActionListener(this);
-	   
+	   button9.addActionListener(this);
 	   
 	   frame.add(panelCont);
 	   frame.pack();
@@ -162,7 +170,7 @@ public class Screen extends JFrame implements ActionListener
 		   String input1 = text1.getText();
 		   try 
 		   {
-			   LanguageChecker.checktext(input1);
+			   LanguageChecker.CheckText(input1);
 		   }catch (IOException e1) 
 		   {
 			// TODO Auto-generated catch block
@@ -183,8 +191,29 @@ public class Screen extends JFrame implements ActionListener
 		   }
 	   }
 	   
+	   //file chooser
+	   else if(src.equals(button9))
+	   {
+		   	JButton open = new JButton();
+		   	JFileChooser fs = new JFileChooser();
+	 		fs.setDialogTitle("Choose a text file");
+	 		fs.setCurrentDirectory(file);
+	 		fs.showOpenDialog(null);
+	 		fs.setFileFilter(filter);
+	 		if(fs.showOpenDialog(open) == JFileChooser.APPROVE_OPTION)
+	 		{
+	 			File f = fs.getSelectedFile();
+	 			try 
+	 			{
+					LanguageChecker.CheckFile(f);
+	 			}catch (IOException e1) 
+	 			{
+	 				// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	 		}
+	   }
 	   
    }
-   
-  
+
 }

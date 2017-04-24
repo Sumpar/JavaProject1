@@ -51,7 +51,8 @@ public class BadWords {
 		/*if average length of words counted exceeds half of the words counted. more likely to be a formal context
 		/*so if it does not exceeds more likely to be a non-formal context
 		 */
-		if(avglength < cwords.length / 2)
+		double sentence = cwords.length;
+		if(avglength < sentence / 2)
 		{
 			counter++;
 		}
@@ -74,7 +75,6 @@ public class BadWords {
     		while ((word = br.readLine()) != null)
 			{
     			words = word.split(splitby);
-				i++;
 			}
     		//make input1 to an array
     		String[] cwords = input1.split("\\s+");
@@ -116,7 +116,68 @@ public class BadWords {
     			System.out.println("Error in BufferedWriter"+ex);
     		}
     	//return value
+    	br.close();
 		return counter;
     	}
 	}
+	
+	static String FileCheck(File file1) throws IOException
+	{
+		//file reader
+		br = new BufferedReader(new FileReader(file1));		
+		StringBuilder sb = new StringBuilder();
+			
+		String line = br.readLine();
+		while(line != null)
+		{
+			sb.append(line);
+			sb.append(System.lineSeparator());
+			line = br.readLine();
+		}
+		String input1 = sb.toString();
+		
+		br.close();
+		//return file's content as string.
+		return input1;
+	}
+	
+	//method to check sentence length after typing sentence
+	static int CheckTextLength(File file1) throws IOException
+	{
+		int counter = 0;
+		int i = 0;
+		int SLength = 0;
+		int avglength = 0;
+		//file reader
+		br = new BufferedReader(new FileReader(file1));		
+			
+		while ((word = br.readLine()) != null)
+		{
+			words = word.split("\n");
+		}
+		
+		for(i=0; i < words.length; i++)
+		{
+			//paragraph's length
+			SLength = words[i].length();
+			//average words in a formal text/paragraph are about 69 - 190 including spaces/dot so if it exceeds 170 more likely to be a formal text.
+			if(SLength < 140)
+			{
+				avglength++;
+			}
+		}
+		
+		double paragraphs = words.length;
+		//if average length is higher than 3/1 = more likely to be a formal text
+		if(avglength < paragraphs / 3)
+		{
+			counter++;
+		}
+		
+		//close file reader
+		br.close();
+		//return value
+		return counter;
+	}
+	
 }

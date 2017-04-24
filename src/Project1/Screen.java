@@ -77,7 +77,7 @@ public class Screen extends JFrame implements ActionListener
 	   
 	   //custom sizes set
 	   Dimension panels = new Dimension(400,400);
-	   Dimension mainbuttons = new Dimension(200,40);
+	   Dimension mainbuttons = new Dimension(250,40);
 	   Dimension exitbuttons = new Dimension(100,40);
 	   Dimension textfield = new Dimension(200,40);
 	   
@@ -157,10 +157,22 @@ public class Screen extends JFrame implements ActionListener
 		   //switch to main menu
 		   c1.show(panelCont, "1");
 	   }
-	   //confirm on add new word on dictionary
 	   else if(src.equals(button7))
 	   {
 		   String input1 = text1.getText();
+		   try 
+		   {
+			   LanguageChecker.checktext(input1);
+		   }catch (IOException e1) 
+		   {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		   }
+	   }
+	   //confirm on add new word on dictionary
+	   else if(src.equals(button8))
+	   {
+		   String input1 = text2.getText();
 		   try
 		   {
 			   TextControl.getFileWriter(input1);

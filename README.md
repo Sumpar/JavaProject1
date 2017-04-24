@@ -1,7 +1,10 @@
 # JavaProject1
 This is my Java project
 
-I have planned first before coding so I have general idea where to start and how to structure the code and this was my initial planning.
+I have selected to make a language analayser which has Gui and user can choose either to type in or choose a text file from local drive to be checked either the text is formal or informal.
+User can also add more slangs/bad languages into the dictionary.txt which is used to validate the text. 
+
+I have planned first before coding so that I could have general idea where to start and how to structure the code and this was my initial planning.
 
 Make Gui classes. probably 5. 
 	1 screen = Choose between type in or choose the selected file or add in the new informal word or exit.(Main menu)

@@ -1,6 +1,10 @@
-//This is the screen part of the project.
 package Project1;
 
+/* SUMIN PARK
+ *
+ * This is the screen part of the project. 
+ * Have all the variables of screen and button interactions(Menu)
+ */
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -39,7 +43,7 @@ public class Screen extends JFrame implements ActionListener
    {
 	   super(title);
 	   
-	   //data
+	   //variables
 	   label1 = new JLabel("Choose between following options");
 	   button1 = new JButton("Type in your own text");
 	   button2 = new JButton("Choose from the file");
@@ -165,6 +169,8 @@ public class Screen extends JFrame implements ActionListener
 		   //switch to main menu
 		   c1.show(panelCont, "1");
 	   }
+	   //end of navigation buttons
+	   //confirm on check user's input 
 	   else if(src.equals(button7))
 	   {
 		   String input1 = text1.getText();
@@ -177,6 +183,7 @@ public class Screen extends JFrame implements ActionListener
 			e1.printStackTrace();
 		   }
 	   }
+	   
 	   //confirm on add new word on dictionary
 	   else if(src.equals(button8))
 	   {
@@ -194,6 +201,7 @@ public class Screen extends JFrame implements ActionListener
 	   //file chooser button (when pressed attach)
 	   else if(src.equals(button9))
 	   {
+		   	//variables for JFileChooser
 		   	JButton open = new JButton();
 		   	JFileChooser fs = new JFileChooser();
 	 		fs.setDialogTitle("Choose a text file");

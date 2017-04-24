@@ -1,5 +1,10 @@
 package Project1;
 
+/* SUMIN PARK
+ * 
+ * This class contains all the methods that is being used by language checker .
+ * Returns variables to be used to validate language style.
+ */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -30,6 +35,7 @@ public class BadWords {
 		return counter;
 	}
 	
+	//method to check word length
 	static int CheckWordLength(String input1)
 	{
 		int i;
@@ -121,26 +127,6 @@ public class BadWords {
     	}
 	}
 	
-	static String FileCheck(File file1) throws IOException
-	{
-		//file reader
-		br = new BufferedReader(new FileReader(file1));		
-		StringBuilder sb = new StringBuilder();
-			
-		String line = br.readLine();
-		while(line != null)
-		{
-			sb.append(line);
-			sb.append(System.lineSeparator());
-			line = br.readLine();
-		}
-		String input1 = sb.toString();
-		
-		br.close();
-		//return file's content as string.
-		return input1;
-	}
-	
 	//method to check sentence length after typing sentence
 	static int CheckTextLength(File file1) throws IOException
 	{
@@ -179,5 +165,28 @@ public class BadWords {
 		//return value
 		return counter;
 	}
+	
+	//method to return file's content as string
+	static String FileCheck(File file1) throws IOException
+	{
+		//file reader
+		br = new BufferedReader(new FileReader(file1));		
+		StringBuilder sb = new StringBuilder();
+			
+		String line = br.readLine();
+		//loop to read in line by line
+		while(line != null)
+		{
+			sb.append(line);
+			sb.append(System.lineSeparator());
+			line = br.readLine();
+		}
+		String input1 = sb.toString();
+		
+		br.close();
+		//return file's content as string.
+		return input1;
+	}
+	
 	
 }

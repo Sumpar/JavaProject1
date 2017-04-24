@@ -1,6 +1,9 @@
 package Project1;
 
-//class to write in file
+/* SUMIN PARK
+ * 
+ * Class to write in file when user chose to save his/her own word in dictionary.
+ */
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -39,7 +42,7 @@ public class TextControl
     			file.createNewFile();
     		}
     		
-	    	//error check to make sure there is no other same words
+	    	//error check to make sure there is no other same words(using method below)
     		if(TextControl.SameText(input1) == false)
     		{
         		JOptionPane.showMessageDialog( null, "Already have that word in dictionary");
@@ -107,10 +110,12 @@ public class TextControl
 			if(words[i].equals(input1))
 			{
 				br.close();
+				//return false if word is already in dictionary
 	    		return false;
 			}
 		}
 		br.close();
+		//return true if word is not in dictionary
 		return true;
 	}
 	

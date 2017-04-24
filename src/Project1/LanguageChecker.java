@@ -6,13 +6,19 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+/* SUMIN PARK
+ * 
+ * This class contains methods
+ * that calls methods from BadWords class to validate if the input is formal/informal
+ */
+
 public class LanguageChecker {
 	private static int badcounter = 0;
 	private static int badlength = 0;
 	private static int wordcount = 0;
 	private static int factors = 0;
 	
-	
+	//method if user chose to write her/his own text to the system.
 	static void CheckText(String input1) throws IOException
 	{
 		try
@@ -55,8 +61,10 @@ public class LanguageChecker {
 	}
 	
 	
+	//method If user chose to pick a file to be checked.
 	static void CheckFile(File f) throws IOException
 	{
+		//converts file's content to String
 		String input1 = BadWords.FileCheck(f);
 		
 		//bad words counter(calling method) if there is more than 1 its highly likely to be a informal text.

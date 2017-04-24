@@ -18,7 +18,7 @@ public class BadWords {
 	private static int counter = 0;
 	
 	//directory needed to be changed
-	private static File file = new File("D:\\dictionary.txt");
+	private static File file = new File("dictionary.txt");
  
 	//method to check sentence length after typing sentence
 	static int CheckSentenceLength(String input1)

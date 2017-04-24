@@ -24,8 +24,8 @@ public class TextControl
 	private static String[] words;
 
 	
-	//directory needed to be changed cause somehow I cannot read the text file in my directory...
-	private static File file = new File("D:\\dictionary.txt");
+	private static File file = new File("dictionary.txt");
+	
 	
 	//method to write into file.
 	static void getFileWriter(String input1) throws IOException

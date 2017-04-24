@@ -38,3 +38,6 @@ Sequences
 	
 	
 I tried to follow my planning although I had to change some parts because it was needed to be changed.
+
+
+My github url = https://github.com/Sumpar/JavaProject1/tree/master/src/Project1

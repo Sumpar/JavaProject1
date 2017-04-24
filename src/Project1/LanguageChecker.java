@@ -88,8 +88,8 @@ public class LanguageChecker {
 			factors++;
 		}
 		
-		//if the factor has more than/equals to 1 value
-		if(factors >= 1)
+		//if the factor has more than/equals to 2 value
+		if(factors >= 2)
 		{
 			JOptionPane.showMessageDialog( null, "This text file is informal/slang sentence");
 		}

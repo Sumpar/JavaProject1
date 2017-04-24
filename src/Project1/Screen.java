@@ -204,9 +204,11 @@ public class Screen extends JFrame implements ActionListener
 		   	//variables for JFileChooser
 		   	JButton open = new JButton();
 		   	JFileChooser fs = new JFileChooser();
-	 		fs.setDialogTitle("Choose a text file");
-	 		fs.setCurrentDirectory(file);
-	 		fs.showOpenDialog(null);
+		   	
+	 		//fs.setDialogTitle("Choose a text file");
+	 		//fs.setCurrentDirectory(file);
+	 		//fs.showOpenDialog(null);
+		   	
 	 		fs.setFileFilter(filter);
 	 		if(fs.showOpenDialog(open) == JFileChooser.APPROVE_OPTION)
 	 		{
